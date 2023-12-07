@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iteration</title>
+</head>
+<body>
+
+
+
+<script type="text/javascript" >
+
+    // => Array Call Back Method
+
+    // forEach
+    // map
+    // filter
+    // find
+    // reduce
+    // some
+    // every
+
+    // for(let x=0;x< array.lenght;x++){
+    //     code to be executed
+    // }
+
+    // for(let key in obj){
+    //     code to be executed
+    // }
+
+    // for(let value of array){
+    //     code to be executed
+    // }
+
+    document.write("<h3>For Loop</h3>");
+
+    let mycolors = ['red','green','blue','orange','gray'];
+    for(let x=0; x < mycolors.length; x++){
+        document.write(mycolors[x]+"<br/>");
+    }
+
+    document.write("<h3>For In Loop</h3>");
+    let customers = {
+        name:"aung aung",
+        city:"yangon",
+        parent:"U Ba",
+        phone:"0123456"
+    };
+
+    for(let key in customers){
+        document.write(key + " = " + customers[key] + "<br/>");
+    }
+
+    const ourteams = ["kyaw kyaw","aung aung","maung maung","kaung kaung"];
+    for(idx in ourteams){
+        document.write("For in loop result "+ ourteams[idx]+"<br/>");
+    }
+
+    document.write("<h3>For of Loop</h3>");
+    const members = ["su su","lu lu","nu nu","yu yu"];
+    for(let member of members){
+        // console.log(member);
+        document.write("For of loop result = "+ member +"<br/>");
+    }
+
+    document.write("<h3>forEach Loop</h3>");
+
+    const students = ["su su","lu lu","nu nu","yu yu","phu phu"];
+    students.forEach(student=>{
+        document.write("forEach loop result = "+student + "<br/>");
+    });
+
+    document.write("<br/>");
+
+    const colors = ["red","green","blue","white","black"];
+    colors.forEach((color,idx)=>{
+        document.write(`Index number is =${idx} color is ${color} <br/>`);
+    });
+
+    document.write("<h3>map Loop</h3>");
+    const employees = ["su su","lu lu","nu nu","yu yu","phu phu"];
+    employees.map(employee=>{
+        document.write("map loop result = " + employee + "<br/>" );
+    });
+
+    const ladies = employees.map((employee,idx)=>{
+        // return `Ms.${employee}`;
+        return `${++idx} Ms.${employee}`;
+    });
+
+    console.log(ladies); // (5) ['Ms.su su', 'Ms.lu lu', 'Ms.nu nu', 'Ms.yu yu', 'Ms.phu phu']
+
+    const visitors = ["ko sai","m zaw naw","june","htet aung kyaw","paing sis"];
+
+    let guys = visitors.map(visitor=>`Mr.visitor`);
+    console.log(guys);
+
+    // visitors.forEach(visitor=>{
+    //     console.log(`forEach result = Mr.${visitor}`); // string
+    // });
+
+    // can't set!!! forEach not working
+    // let people = visitors.forEach(visitor=>{
+    //     return `forEach result = Mr.${visitor}`; // string
+    // });
+    // console.log(people);
+
+    const arrs1 = employees.map(employer=>{
+        return employer;
+    })
+
+    console.log(arrs1);
+
+    const arrs2 = arrs1.filter(owner=>{
+
+        if(owner === "nu nu"){
+            return false;
+        }else{
+            return  true;
+        }
+    });
+
+    console.log(arrs2);
+
+    const owners = employees.map(employee=>{
+       return employee;
+    }).filter(owner=>{
+        // if(owner === "nu nu"){
+        //     return false;
+        // }else{
+        //     return  true;
+        // }
+
+        if(owner === "nu nu"){
+            return false;
+        }
+        return  true;
+    });
+
+    // console.log(owners);
+
+    const firstnames = ["aung","kyaw","soe"];
+
+    const name1 = firstnames.map((firstname)=>{
+       return `${firstname} ko ko`;
+    });
+    console.log(name1);
+
+    const name2 = firstnames.map(firstname=>{
+        return `${firstname} hla`;
+    });
+    console.log(name2);
+
+    const name3 = firstnames.map(firstname=>`${firstname} lwin`);
+    console.log(name3);
+
+    const name4 = firstnames.map(()=>`su su`); // (3) ['su su','su su','su su'];
+    console.log(name4);
+
+    const sport = "bike";
+    const contestants = ["aung aung","kyaw kyaw","maung maung","tun tun","linn linn"];
+
+    const winners = contestants.map((contestant,idx)=>({
+      name:contestant,
+      sport,
+      prize:++idx
+    }));
+    console.log(winners);
+
+</script>
+</body>
+</html>
+
+<!--26AA-->
