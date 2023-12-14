@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Iteration</title>
+</head>
+<body>
+
+
+
+<script type="text/javascript" >
+
+    let person1 = {
+        name:"Aung Aung",
+        age:20,
+        gender:"male"
+    };
+
+    console.log(person1);
+    console.log(person1.name);
+    console.log(person1["name"]);
+
+    person1.city = "Yangon";
+    console.log(person1); // {name: 'Aung Aung', age: 20, gender: 'male', city: 'Yangon'}
+
+    let person2 = person1;
+    console.log(person2);   // {name: 'Aung Aung', age: 30, gender: 'male', city: 'Yangon', hobby: 'sport'}
+
+    person2.hobby = "sport";
+    person2.age = 30;
+    console.log(person1); //{name: 'Aung Aung', age: 30, gender: 'male', city: 'Yangon', hobby: 'sport'}
+    console.log(person2); // {name: 'Aung Aung', age: 30, gender: 'male', city: 'Yangon', hobby: 'sport'}
+
+    let person3 = Object.freeze(person1);
+    person3.phone = "0911111";
+    person3.age = 40;
+    console.log(person1);       //{name: 'Aung Aung', age: 30, gender: 'male', city: 'Yangon', hobby: 'sport'}
+    console.log(person2);       //{name: 'Aung Aung', age: 30, gender: 'male', city: 'Yangon', hobby: 'sport'}
+    console.log(person3);       //{name: 'Aung Aung', age: 30, gender: 'male', city: 'Yangon', hobby: 'sport'}
+    console.log(person3.name);    // Aung Aung
+    console.log(person3['name']); // Aung Aung
+
+    const employees = {
+        name:"yu yu",
+        position:"graphic designer",
+        salary:50000
+    };
+
+    const {name,salary} = employees;
+    console.log(name);
+    console.log(salary);
+
+    const employers = {
+        fullname:"su su",
+        company:"abc co.,ltd",
+        location:"Yangon",
+        posts:{
+            officestaff:{
+                gender:"female",
+                salary:600000
+            },
+            driver:{
+                gender:"male",
+                salary:300000
+            }
+        },
+        links:{
+            social:{
+                gmail:"admin@abc.com",
+                facebook:"https://facebook.com/abccompany"
+            }
+        }
+    };
+
+    const {fullname,company,posts} = employers;
+
+    console.log(fullname); // su su
+    console.log(company); // abc co.,ltd
+    console.log(posts.officestaff.gender,posts["officestaff"]["salary"]);
+    console.log(posts.driver.gender,posts["driver"]["salary"]);
+
+    // const {gmail,facebook} = employers.links.social;
+    // console.log(gmail);
+    // console.log(facebook);
+
+    // => Alias
+    const {gmail:letter,facebook:status} = employers.links.social;
+    // console.log(gmail); // Uncaught ReferenceError: gmail is not defined
+    // console.log(facebook);
+    console.log(letter);
+    console.log(status);
+
+    const configs = {
+        width:100,
+        color:"steelblue"
+    };
+
+    const {
+        width,
+        height = 500,
+        color = "black",
+        margin = "10px" } = configs;
+
+    console.log(width);  // 100
+    console.log(color);  // steelblue
+    console.log(height); // 500
+    console.log(margin); // 10px
+
+    const {bg:background="white",p:padding="10px"} = {bg:"black"};
+
+    // console.log(bg); // error
+    // console.log(p);  // error
+    console.log(background);
+    console.log(padding);
+    // console.log(flex);    //error
+    // console.log(flexbox); //undefined
+
+    function exchangerage(amount){
+        const rates = {
+            mmk:amount * 3000,
+            thb:amount * 40,
+            sgd:amount * 1.35
+        };
+        return rates;
+    }
+
+    const currency = exchangerage(10);// 10usd
+    console.log(currency);
+    console.log(currency.mmk); // 300000
+    console.log(currency.thb); // 4000
+
+    const {mmk,thb,sgd} = exchangerage(10);
+    console.log(mmk); // 300000
+    console.log(thb); // 400
+    console.log(sgd); // 13.5
+
+    let obj = {
+        total:1000,
+        tax:5,
+        servicefee:100
+    };
+
+    function grandtotal1(obj){
+        const result = obj.total + (obj.total / obj.tax ) + obj.servicefee;
+        return result;
+    }
+
+    console.log(grandtotal1(obj));      // 1300
+    // console.log(grandtotal1());      // error
+
+    function grandtotal2(obj={}){
+        const result = obj.total + (obj.total / obj.tax ) + obj.servicefee;
+        return result;
+    }
+
+    console.log(grandtotal2());      // NaN
+
+    // const {total,tax,servicefee} = {total:1000,tax:100,servicefee:200}
+
+    function grandtotal3({total,tax,servicefee}){
+        const result = total + ( total/tax ) + servicefee;
+        return  result;
+    }
+
+    console.log(grandtotal3({total:2000,tax:5,servicefee:100})); //2500
+    console.log(grandtotal3(obj));      //1300
+
+    function grantotal4({ total=1000,tax=5,servicefee=100 }){
+        const result = total+(total/tax)+servicefee;
+        return result;
+    }
+
+    console.log(grantotal4({total:30000,tax:5,servicefee:100}));    //36100
+    console.log(grantotal4({total:3000,servicefee:100}));    //36100
+
+
+    function grantotal5({ total=1000,tax=5,servicefee=100 }={}){
+        const result = total+(total/tax)+servicefee;
+        return result;
+    }
+
+    console.log(grantotal5({total:3000,tax:5,servicefee:100})); //3700
+    console.log(grantotal5({total:3000,servicefee:200})); //3800
+    console.log(grantotal5()); // 1300s
+
+
+</script>
+</body>
+</html>
+
+<!--26AA-->
+<!-- 10OB -->

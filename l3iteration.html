@@ -6,7 +6,7 @@
 <body>
 
 
-
+ 
 <script type="text/javascript" >
 
     // => Array Call Back Method
@@ -143,12 +143,12 @@
     const name1 = firstnames.map((firstname)=>{
        return `${firstname} ko ko`;
     });
-    console.log(name1);
+    console.log(name1); // ["aung ko ko","kyaw ko ko","soe ko ko"];
 
     const name2 = firstnames.map(firstname=>{
         return `${firstname} hla`;
     });
-    console.log(name2);
+    console.log(name2);// ["aung hla","kyaw hla","soe hla"];
 
     const name3 = firstnames.map(firstname=>`${firstname} lwin`);
     console.log(name3);
@@ -165,6 +165,20 @@
       prize:++idx
     }));
     console.log(winners);
+
+    document.write("<h3></h3>");
+    const ages = [20,25,21,17,35,16,500,17,11,80,10,18,12,15,37];
+
+    const getover18 = ages.filter(age=>{
+        return age > 18;
+    });
+    console.log(getover18); // (7) [20, 25, 21, 35, 500, 80, 37]
+    document.write("filter result = " + getover18 + "<br/>");
+
+    const getover20 = ages.filter(age=> age >= 20);
+    console.log(getover20); // (7) [20, 25, 21, 35, 500, 80, 37]
+
+
 
 </script>
 </body>
