@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Array</title>
+	</head>
+	<body>
+		
+
+		<script type="text/javascript">
+
+            const myarrs = [100,200,300,400,500];
+			let num1 = myarrs[0];
+			console.log(num1); // 100
+
+			const [val1,val2,val4,val3,val5] = myarrs;
+			console.log(val1);
+			console.log(val2);
+			console.warn(val3);
+			console.warn(val4);
+			console.log(val5);
+
+
+
+            // => Array
+
+            let male = "Aung Aung";
+            let female = "Su Su";
+            console.log(male,female); //Aung Aung Su Su
+
+            [male,female] = [female,male];
+            console.log(male,female); //Su Su Aung Aung
+
+            const colors = ["red","green","blue","white","black"];
+            console.log(colors);
+
+            console.log(colors[0]); // red
+            console.log(colors[3]); // white
+
+            for(const color of colors){
+                console.log(color);
+            }
+
+            const arrs = colors.entries();
+            console.log(arrs);  // Array Iterator {}
+
+            // console.log(arrs.next());   //{value: Array(2), done: false}
+            // console.log(arrs.next());   //{value: Array(2), done: false}
+            // console.log(arrs.next());   //{value: Array(2), done: false}
+            // console.log(arrs.next());   //{value: Array(2), done: false}
+            // console.log(arrs.next());   //{value: Array(2), done: false}
+            // console.log(arrs.next());   //{value: undefined, done: true}
+
+            for(const color of arrs ){
+                // console.log(color);
+                console.log(color[0],color[1]);
+            }
+
+            for(const [idx,color] of colors.entries() ){
+                console.log(`Index is ${idx} = Value is ${color}`);
+            }
+
+            const staffs = ["aung aung","maung maung","kyaw kyaw","zaw zaw","tun tun"];
+            console.log(staffs);
+            console.log(typeof staffs);
+
+            const employees = staffs[Symbol.iterator]();
+            console.log(employees); // Array Iterator {}
+            console.log(typeof employees); // Object
+
+            console.log(employees.next());  // {value: 'aung aung', done: false}
+            console.log(employees.next());  // {value: 'maung maung', done: false}
+            console.log(employees.next());  // {value: 'kyaw kyaw', done: false}
+            console.log(employees.next());  // {value: 'zaw zaw', done: false}
+            console.log(employees.next());  // {value: 'tun tun', done: false}
+            console.log(employees.next());  // {value: underfined, done: false}
+
+
+
+		</script>
+	</body>
+</html>

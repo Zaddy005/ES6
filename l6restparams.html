@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rest Parameter / Rest Operator</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+    // Rest Parameter
+    // Note : can't set first and between
+    //         : can contain just one rest parameter
+
+    function city(val){
+        return val;
+    }
+
+    console.log(city());    //undefined
+    console.log(city("yangon"));    //yangon
+    console.log(city('yangon',"mandalay","bagan"));    //yangon
+
+    function country(...vals){
+        return vals;
+    }
+
+    console.log(country('yangon',"mandalay","bagan"));    //(3) ['yangon', 'mandalay', 'bagan']
+
+    function place(location,...vals){
+        // return location; //  chaung tar
+        return vals;
+    }
+
+    console.log(place('chaung tar','ngapali',"Ngwesaung"));
+
+    let animal = new Function('...vals','return vals');
+    console.log(animal('cat','dog','fish'));    // (3) ['cat', 'dog', 'fish']
+
+
+</script>
+</body>
+</html>
+
+<!--17RP-->
