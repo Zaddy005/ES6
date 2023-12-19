@@ -36,6 +36,18 @@
     let animal = new Function('...vals','return vals');
     console.log(animal('cat','dog','fish'));    // (3) ['cat', 'dog', 'fish']
 
+    function sumresult(...nums){
+        let total =0 ;
+        for(const num of nums){
+            total += num;
+        }
+        return total;
+    }
+
+    console.log(sumresult(10,20,30,40,50)); // 150
+    console.log(sumresult([10,20,30,40,50])); // doesn't work with array 010,20,30,40,50
+
+    // continue....
 
 </script>
 </body>
