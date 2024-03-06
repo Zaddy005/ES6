@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set</title>
+</head>
+<body>
+
+    <script type="text/javascript" >
+
+        const info = {
+            name:"su su",
+            age:20,
+            city:"yangon"
+        };
+
+        const names = new Set();
+        console.log(names);
+        console.log(typeof names);
+
+        names.add("aung aung");
+        names.add("kyaw kayw");
+        names.add("zaw zaw").add("yu yu").add("nu nu");
+
+        console.log(names);
+        console.log(names.length);  // underfined
+        console.log(names.size); // 5
+
+        names.forEach(name=>{
+            console.log(name);
+        });
+
+        console.log(names[Symbol.iterator]());
+        console.log(names[Symbol.iterator]().next()); //  {value: 'aung aung', done: false}
+        console.log(names[Symbol.iterator]().next().value); // aung aung
+        console.log(names[Symbol.iterator]().next().value); // aung aung
+        console.log(names[Symbol.iterator]().next().value); // aung aung
+
+        const getnames = names[Symbol.iterator]();
+        console.log(getnames); // SetIterator {'aung aung', 'kyaw kayw', 'zaw zaw', 'yu yu', 'nu nu'}
+        console.log(getnames.next().value); // aung aung
+        console.log(getnames.next().value); // kyaw kyaw
+        console.log(getnames.next().value); // zaw  zaw
+        console.log(getnames.next().value); // yu yu
+        console.log(getnames.next().value); // nu nu
+
+        let students = new Set();
+        students.add("hal hal").add("mya mya").add("ywal ywal");
+        students.add("nilar").add("hla hla").add("ywal ywal");
+        console.log(students);
+        console.log(students.size); // 5
+
+        console.log(students.has("hla hla")); // true
+        console.log(students.has("Nilar")); // false
+        console.log(students.has("hla")); // false
+
+        console.log(students.delete("mya mya")); // true
+
+        console.log(students);  // Set(4) {'aung aung', 'kyaw kayw', 'zaw zaw', 'yu yu', 'nu nu'}
+        console.log(students.size);// 4
+
+        students.clear();
+
+        console.log(students);  // Set(0) {size:0}
+        console.log(students.size); //   0
+
+        // => Set() to Array
+        const customers = ["yu yu","nu nu","ma ma"];
+        console.log(customers);
+
+        const vipcustomers = new Set(customers);
+        console.log(vipcustomers); // Set(3) {'yu yu',"nu nu","ma ma"}
+
+        // Method 1
+        const vipmembers = Array.from(vipcustomers);
+        console.log(vipmembers);
+
+        // Method 2
+        const bigcustomers = [...vipcustomers];
+        console.log(bigcustomers);// (3) ['yu yu','nu nu','ma ma']
+        console.log(bigcustomers.length); // 3
+        console.log(bigcustomers[0]);   // yu yu
+
+
+
+
+
+    </script>
+</body>
+</html>

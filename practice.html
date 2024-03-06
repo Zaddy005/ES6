@@ -6,74 +6,7 @@
 <body>
     <script type="text/javascript" >
 
-        document.write("<h3>For Loop</h3>");
-        
-        let mycolors = ["red","green","blue"];
-        for(let x = 0; x < mycolors.length; x++){
-            document.write(mycolors[x] + "<br/>" );
-        }
 
-        let customers = {
-            name:"Aung Aung",
-            city:"Yangon",
-            parent:"U Ba",
-            phone:"0912345689"
-        };
-
-        document.write("<hr/>");
-
-        for(key in customers){
-            document.write(customers[key] + "<br/>");
-        }
-        
-        for(value of mycolors){
-            console.log(value);
-        }
-        
-        const students = ["su su","lu lu","nu nu"];
-        
-        // students.forEach(student=>{
-        //     console.log(student);
-        // });
-
-        // map
-        students.map(student=>console.log(student))
-        
-        let ladies = students.map((student,idx)=>{
-            // return "Ms."+student;
-            return idx;
-        });
-        // console.log(ladies);
-
-        const visitors = ["ko sai","m zaw naw","htet aung kyaw","paing sis"];
-        let guys = visitors.map(visitor=>"Mr."+visitor);
-        // console.log(guys);
-
-        const employers = ["su su","lu lu","nu nu","yu yu","phu phu"];
-        const owners = employers.map(employer=>employer).filter(owner=>{
-            if(owner === "su su"){
-                return false;
-            }
-            return true;
-        });
-
-        // console.log(owners);
-
-        const sport = "bike";
-        const contestants = ["aung aung","kyaw kyaw","maung aung","Tun Tun"];
-
-        let winners = contestants.map((contestant,idx)=>({
-            name:contestant,
-            sport,
-            prize:++idx
-        })).filter(winner=>{
-            if(winner.prize <= 3){
-                return true;
-            }
-            return false;
-        });
-
-        console.log(winners);
 
     </script>
 </body>

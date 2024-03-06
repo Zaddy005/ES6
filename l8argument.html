@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spread Operators</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+    //Error
+    // function sumresult(){
+    //     let sum = arguments.reduce((total,curr)=>(total += curr),0);
+    //     return sum;
+    // }
+    // console.log(sumresult(10,20,30,40,50));
+
+    function sumresult(){
+        let sum = Array.from(arguments);
+            sum = sum.reduce((total,curr)=>(total += curr),0);
+        return sum;
+    }
+
+    console.log(sumresult(10,20,30,40,50));
+
+
+
+</script>
+</body>
+</html>
+
+<!-- 11AO -->

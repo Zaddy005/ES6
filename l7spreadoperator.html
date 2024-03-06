@@ -82,8 +82,54 @@
     console.log([...'123',...'456','70',80,90]); // (9) ['1', '2', '3', '4', '5', '6', '70', 80, 90]
     console.log([...['123'],...['456'],'70',80,90]); // (9) ['1', '2', '3', '4', '5', '6', '70', 80, 90]
 
+    const students = [..."hello",{name:"aung aung"}];
+    console.log(students);
+
+    const persons = {
+        name:"Tun Tun",
+        gender:"Male",
+        age:22
+    }
+
+    const phone = "0911111";
+    const country = "Myanmar";
+    const key1 = "nickname";
+    const key2 = "favcolor";
+
+    const customers = {
+        ...persons,
+        hascar:true,
+        tel:phone,
+        country:country,
+        [key1]:"Mg Tun",
+        [key2]:"black"
+    };
+
+    console.log(customers);
+
+    const keyassign = (obj,key,val)=>{
+        const getobj = obj;
+        getobj[key] = val;
+        // console.log(getobj);
+
+        const takeobj = {
+            ...obj
+        };
+        takeobj[key] = val;
+        console.log(takeobj)
+
+        const setobj = {
+            ...obj,
+            [key]:val
+        }
+        console.log(setobj);
+    }
+
+    keyassign(customers,"job","Developer");
+
 </script>
 </body>
 </html>
 
 <!--17RP-->
+<!--25OP-->
