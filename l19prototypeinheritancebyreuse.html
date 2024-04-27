@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Calling the Super Constructor</title>
+</head>
+<body>
+<script type="text/javascript" >
+
+    function  Vehicle(color){
+        this.color = color;
+    }
+
+    Vehicle.prototype.vancar = function (){
+        return "This is vancar";
+    }
+
+    function Bike(brand,colour){
+        Vehicle.call(this,colour); // red
+        this.brand = brand;
+
+    }
+
+    function Boat(boat){
+        this.brand = boat;
+    }
+
+    // = Style 1
+    // Bike.prototype = Object.create(Vehicle.prototype);
+    // Bike.prototype.constructor = Bike;
+
+    // = Style 2 for reuse
+    function extend(Parent,Child){
+        Child.prototype = Object.create(Parent.prototype);
+        Child.prototype.constructor = Child;
+    }
+
+    extend(Vehicle,Bike);
+    extend(Vehicle,Boat);
+
+    // ***** Note : must extend prototype member after inheritance
+    Bike.prototype.ebike = function (){
+        return "this is ebike";
+    }
+
+    const vehicleobj = new Vehicle("Black");
+    const bikeobj = new Bike("marin","red");
+    const boatobj = new Boat("searay");
+
+    console.log(vehicleobj);
+    console.log(vehicleobj.color); // black
+    console.log(vehicleobj.vancar()); // this is vancar
+
+    console.log(bikeobj);
+    console.log(bikeobj.brand); // marin
+    console.log(bikeobj.ebike()); // this is ebike
+
+    console.log(bikeobj.vancar()); // this is vancar
+    console.log(bikeobj.colour); // red
+    console.log(bikeobj.color); // red
+
+    console.log(boatobj);
+    console.log(boatobj.brand); // searay
+    console.log(boatobj.vancar()); // This is vancar
+
+
+
+</script>
+</body>
+</html>
+
+<!-- 7IN -->

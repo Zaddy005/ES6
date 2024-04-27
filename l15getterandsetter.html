@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Getter & Setter </title>
+</head>
+<body>
+
+
+<script type="text/javascript" >
+
+
+    // => Getter & setter
+
+    // Constructor Function
+    function Item(){
+
+        // Local variable call private properties, can't access from outside
+        let price = {pro:1000,promax:1500}
+
+        let colors = function (){
+            return "All colors are same price";
+        }
+
+        let madeby = "China";
+
+        let designer = function (){
+            return "design by California";
+        }
+
+        // Method 1
+        this.getprice = function(){
+            return price;
+        }
+
+        this.getcolors = function (){
+            return colors();
+        }
+
+        // Method 2
+        Object.defineProperty(this,'madeby',{
+           // get: is special keyword in javascript
+           get:function (){
+               return madeby;
+           },
+
+           // set: is special keyword in javascript
+            set:function(country){
+               // madeby = country;
+                if(country === 'Myanmar'){
+                    throw new Error("Invalid Country");
+                }else{
+                    madeby = country;
+                }
+            }
+        });
+
+        Object.defineProperty(this,'designer',{
+            get:function (){
+                return designer();
+            }
+        });
+
+    }
+
+    let getobj = new Item();
+    console.log(getobj);
+    console.log(getobj.price);
+    console.log(getobj.getprice());
+    console.log(getobj.getprice().pro);
+    console.log(getobj.getprice().promax);
+
+    // console.log(getobj.getcolors());   // error
+    console.log(getobj.getcolors());    // All colors are same price
+
+    console.log(getobj.madeby);     // China
+    console.log(getobj.designer);   // design by California
+
+    getobj.madeby = "Japan";
+    console.log(getobj.madeby);
+
+    // getobj.madeby = "Myanmar";
+    // console.log(getobj.madeby);
+
+    getobj.madeby = "myanmar";
+    console.log(getobj.madeby);
+
+
+    const data = {
+        brand: "Toyota",
+        made:"Japan",
+        price:5000
+    };
+
+    function Vehicle(obj){
+        this.model = obj.brand;
+        this.color = "black";
+    }
+
+    const getobj2 = new Vehicle(data);
+    console.log(getobj2);       // Vehicle {model: 'Toyota'}
+    console.log(getobj2.model); // Toyota
+
+    // Method 1
+    getobj2.sku = "Crown";
+    console.log(getobj2);  // Vehicle {model: 'Toyota', color: 'black', sku: 'Crown'}
+    console.log(getobj2.sku); // Crown
+
+    // Method 2
+    Vehicle.prototype.tax = function (){
+        return "35%";
+    }
+
+    Vehicle.prototype.madeby = "Japan";
+
+    console.log(getobj2);      // Crown
+    console.log(getobj2.tax());
+
+
+
+</script>
+</body>
+</html>
+
+<!--17PT-->

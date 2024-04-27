@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Rest Params & Destructuring </title>
+</head>
+<body>
+
+    <script type="text/javascript" >
+
+        // => Array Destructuring
+
+        const countries = ['Myanmar',"Thailand","Srilanka","Indoesia"];
+        console.log(countries);
+
+        const [mm,th,slk,indo] = countries;
+        console.log(mm,th,slk,indo);
+
+        const [ ,country1, ,country2] = countries;
+        console.log(country1);
+        console.log(country2);
+
+        // Destructuring Assignment
+        const [fait,...coin] = countries;
+        console.log(fait);
+        console.log(coin);
+
+        //=> Object Destructuring
+
+        const persons = {
+            firstname:"Honey Nway",
+            lastname:"Oo",
+            age:22,
+            gender:"Female",
+            hascar:true,
+            city:"Yangon",
+            country:"Myanmar"
+        };
+
+        console.log(persons.firstname,persons.lastname,persons.age,persons.gender,persons.hascar,persons.city,persons.country);
+
+        const {firstname,lastname,city} = persons;
+        console.log(firstname,lastname,city);  // Honey Nway Oo Yangon true
+
+        const {gender:sex,age:old} = persons;
+        console.log(sex,old);
+
+        const {country,hascar,...other} = persons;
+
+        console.log(country);
+        console.log(hascar);
+        console.log(other);
+
+        let employes = [
+            {
+                firstname:"Hla Nu",
+                lastname:"Htun"
+            },
+            (nickname)=>{
+                return `You can call me ${nickname} ` ;
+            }
+        ];
+
+        console.log(employes)
+        console.log(employes[0])
+        console.log(employes[1]("Ag Ag"));
+
+        let [nickname,setname] = employes;
+
+        console.log(nickname);  //  {firstname: 'Hla Nu', lastname: 'Htun'}
+        console.log(setname("Kyaw Gyi"));  //  {firstname: 'Hla Nu', lastname: 'Htun'}
+        
+        // => Nested Destructuring
+        const staff = [
+            {
+                name:"Aung Aung",
+                position:"Representative",
+                department:"Sales",
+                salary:200000
+            },
+            {
+                name:"Tun Tun",
+                position:"Supervisor",
+                department:"Sales",
+                salary:300000
+            },
+            {
+                name:"su su",
+                position:"manager",
+                department:"Sales",
+                salary:500000
+            },
+            {
+                name:"nu nu",
+                position:"accountant",
+                department:"finance",
+                salary:250000
+            },
+            {
+                name:"yu yu",
+                position:"cfo",
+                department:"finance",
+                salary:700000
+            }
+        ];
+
+        // let {name} = staff; // undefined
+        // let [name] = staff; // {name: 'Aung Aung', position: 'Representative', department: 'Sales', salary: 200000}
+        let [{name}] = staff; // Aung Aung
+
+        console.log(name);  
+
+    </script>
+</body> 
+</html>

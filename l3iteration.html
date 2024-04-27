@@ -50,10 +50,16 @@
         document.write(key + " = " + customers[key] + "<br/>");
     }
 
+    document.write("<br/>");
+
+
     const ourteams = ["kyaw kyaw","aung aung","maung maung","kaung kaung"];
     for(idx in ourteams){
         document.write("For in loop result "+ ourteams[idx]+"<br/>");
     }
+
+    document.write("<br/>");
+
 
     document.write("<h3>For of Loop</h3>");
     const members = ["su su","lu lu","nu nu","yu yu"];
@@ -62,7 +68,10 @@
         document.write("For of loop result = "+ member +"<br/>");
     }
 
-    document.write("<h3>forEach Loop</h3>");
+    document.write("<br/>");
+
+
+    document.write("<h3>ForEach Loop</h3>");
 
     const students = ["su su","lu lu","nu nu","yu yu","phu phu"];
     students.forEach(student=>{
@@ -73,8 +82,10 @@
 
     const colors = ["red","green","blue","white","black"];
     colors.forEach((color,idx)=>{
-        document.write(`Index number is =${idx} color is ${color} <br/>`);
+        document.write(`Index number is = ${idx} color is ${color} <br/>`);
     });
+
+    document.write("<br/>");
 
     document.write("<h3>map Loop</h3>");
     const employees = ["su su","lu lu","nu nu","yu yu","phu phu"];
@@ -82,17 +93,19 @@
         document.write("map loop result = " + employee + "<br/>" );
     });
 
+    document.write("<br/>");
+
     const ladies = employees.map((employee,idx)=>{
         // return `Ms.${employee}`;
         return `${++idx} Ms.${employee}`;
     });
 
-    console.log(ladies); // (5) ['Ms.su su', 'Ms.lu lu', 'Ms.nu nu', 'Ms.yu yu', 'Ms.phu phu']
+    console.log(ladies); // (5) ['1 Ms.su su', '2 Ms.lu lu', '3 Ms.nu nu', '4 Ms.yu yu', '5 Ms.phu phu']
 
     const visitors = ["ko sai","m zaw naw","june","htet aung kyaw","paing sis"];
 
-    let guys = visitors.map(visitor=>`Mr.visitor`);
-    console.log(guys);
+    let guys = visitors.map(visitor=>`Mr.${visitor}`);
+    console.log(guys);  // (5) ['Mr.ko sai', 'Mr.m zaw naw', 'Mr.june', 'Mr.htet aung kyaw', 'Mr.paing sis']
 
     // visitors.forEach(visitor=>{
     //     console.log(`forEach result = Mr.${visitor}`); // string
