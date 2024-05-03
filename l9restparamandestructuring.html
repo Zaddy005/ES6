@@ -105,7 +105,8 @@
 
         // let {name} = staff; // undefined
         // let [name] = staff; // {name: 'Aung Aung', position: 'Representative', department: 'Sales', salary: 200000}
-        let [{name}] = staff; // Aung Aung
+        // let [{name}] = staff; // Aung Aung
+        let [,,{name}] = staff;
 
         console.log(name);  
 
