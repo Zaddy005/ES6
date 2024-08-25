@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Symbol </title>
+</head>
+<body>
+<script type="text/javascript" >
+
+   // =>Symbol
+
+   const mysymbol = Symbol();
+   const yoursymbol = Symbol("This is your symbol");
+    console.log(mysymbol); // Symbol()
+    console.log(typeof mysymbol); // symbol
+
+    console.log(yoursymbol); // Symbol(This is your symbol)
+    console.log(typeof yoursymbol); // symbol
+
+    // Note :: Symbol is unique ( Symbol will be create new unique value )
+
+   const symbol1 = Symbol();
+   const symbol2 = Symbol();
+
+   console.log(symbol1 === symbol1); // true
+   console.log(symbol1 === symbol2); // false
+
+   const symbol3 = Symbol("hello");
+   const symbol4 = Symbol("hello");
+
+   console.log(symbol3 === symbol3); // true
+   console.log(symbol3 === symbol4); // true
+
+   let set = new Set();
+   set.add("red").add('green').add('blue');
+
+   let paints = set[Symbol.iterator]();
+
+   let iteration = paints.next();
+
+   while(!iteration.done){
+       console.warn(iteration.value)
+       iteration = paints.next();
+   }
+
+
+</script>
+</body>
+</html>
+
+<!--23PT-->

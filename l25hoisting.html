@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Hoisting ( do and don't ) </title>
+</head>
+<body>
+
+    <script type="text/javascript" >
+
+        myfunone();
+
+        // => Function Declaration
+        function myfunone(){
+            console.log("My Fun One");
+        }
+
+        myfunone();
+
+        // myfuntwo(); // Uncaught ReferenceError: Cannot access 'myfuntwo' before initialization
+
+        // => Function Expression
+        const myfuntwo = function(){
+            console.log("my fun two");
+        }
+
+        myfuntwo();
+
+        // => Class Declaration
+
+
+        // const seasonobj1 = new Seasoone();
+        // console.log(seasonobj1); // Uncaught SyntaxError: Identifier 'seasonobj1' has already been declared
+
+        class Seasoone{
+            constructor(){
+                this.info = "this is season one";
+            }
+        }
+
+        // const seasonobj1 = new Seasoone();
+        // console.log(seasonobj1);
+
+
+        // => Class Expression
+
+
+        // const seasonobj2 = new Seasontwo();
+        // console.log(seasonobj2);  // Uncaught ReferenceError: Cannot access 'Seasontwo' before initialization
+
+        const Seasontwo = class{
+            constructor(){
+                this.info = "this is season two";
+            }
+        }
+
+        // const seasonobj2 = new Seasontwo();
+        // console.log(seasonobj2);
+
+    </script>
+</body>
+</html>
+
+<!--9CS-->

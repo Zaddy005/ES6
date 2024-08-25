@@ -1,0 +1,75 @@
+=> Babel
+
+mkdir toolbabel
+cd  toolbabel
+
+node -v
+npm -v
+
+npm init (or) npm init --yes
+
+
+
+https://babeljs.io/ > Docs > Usage Guide > Overview > npm
+npm install --save-dev @babel/core @babel/cli @babel/preset-env  ( @babel/core mean all the logic of transpile )
+                                                                 ( @babel/cli mean babel commmand line interface )
+                                                                 ( @babel/ppreset-env mean knew every new features in es6 such
+
+create file index.js
+create folder output
+
+ "scripts": {
+    "build":"babel index.js -o output/index.js",
+    "watch": "babel index.js -o output/index.js --watch"
+  },
+
+  "babel": {
+    "presets" : ["@babel/preset-env"]
+  }
+
+npm run build
+npm run watch
+------------------------------------
+=> Webpack
+
+create folder toolwebpack
+
+
+https://webpack.js.org/  > Documentation > Guides > Installation
+
+For Windows = npm install --global webpack
+For linux = sudo npm install --global webpack
+
+webpack --help
+
+=> Terminal Message ( Note:: -D Must be -G,-g )
+CLI for webpack must be installed.
+  webpack-cli (https://github.com/webpack/webpack-cli)
+
+We will use "npm" to install the CLI via "npm install -D webpack-cli".
+Do you want to install 'webpack-cli' (yes/no): no
+
+npm install -g webpack-cli
+
+webpack --help
+webpack -v
+
+create folder src
+
+
+cd toolwebpack
+webpack-cli init
+
+
+[webpack-cli] For using this command you need to install: '@webpack-cli/generators' package.
+[webpack-cli] Would you like to install '@webpack-cli/generators' package? (That will run 'npm install -D @webpack-cli/generators') (Y/n)
+
+yes or no
+
+
+npm run build
+
+import {phone} from "./phone.js";  or import {phone} form "./phone";
+
+-----------------------------------------------------------
+

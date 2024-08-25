@@ -201,6 +201,7 @@
     console.log(itmeinfo.myfun());
     console.log(itmeinfo.madeby("Thailand"));
 
+    // 11.25 Feb
     const name1 = "Aung Aung";
     const name2 = "Su Su";
     const title = "New Task";
@@ -213,7 +214,7 @@
         title:position
     };
 
-    console.log(job);
+    console.log(job);   
     console.log(job['Aung Aung']);// [name1]:name1, Oki but don't do
 
     const assigns = {};
@@ -224,7 +225,7 @@
     console.log(assigns); // {fullname: 'Aung Aung', New Task: 'Finance Officer', Located: 'Accounting Room'}
 
     const tasks = {
-        ['fullname']:name2,
+        ['fullname']:name2, 
         [title]:position,
         [role]:department,
         // [1+2+3]:"result"
@@ -235,6 +236,15 @@
     // console.log(tasks.6); // error don't do
     // console.log(tasks[6]); // result , don't do
 
+    const keyassign = (obj,key,val) => {
+        obj[key] = val;
+    }
+
+    let customers = tasks;
+
+    keyassign(customers,"job","devloper");
+
+    console.log(customers);
 
 </script>
 </body>

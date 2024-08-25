@@ -15,6 +15,10 @@
         const [mm,th,slk,indo] = countries;
         console.log(mm,th,slk,indo);
 
+
+        let [my,thi,silk,indone,mls='malaysia'] = countries;
+        console.warn(my,thi,silk,indone,mls);
+
         const [ ,country1, ,country2] = countries;
         console.log(country1);
         console.log(country2);
@@ -110,6 +114,23 @@
 
         console.log(name);  
 
+        const paints = {
+            col1:"red",
+            col2:"green",
+            col3:"blue"
+        };
+
+        // const paints = {
+        //     col1:"red",
+        //     col2:"green",
+        // };
+
+        const {col1,col2,col3='orange'} = paints
+
+        console.log(col1,col2,col3)
+
     </script>
 </body> 
 </html>
+
+<!-- 11DD -->

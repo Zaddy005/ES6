@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Class</title>
+</head>
+<body>
+
+    <script type="text/javascript" >
+
+        // => Constructor Function
+
+        function Students(name){
+            this.name = name;
+            this.subjects = function(){
+                return "Myanmar,English,math";
+            }
+        }
+
+        const obj1 = new Students("aung aung");
+        console.log(obj1);
+        console.log(obj1.name);
+        console.log(obj1.subjects());
+
+        // => Class
+
+        class Employee{
+
+            constructor(name){
+                this.name = name;
+                this.codes = function(){
+                    return "PHP,Laravel,React";
+                }
+            }
+
+            // Instance Method
+            salary = (amount,currency)=>{
+                return `${amount} ${currency} per month`;
+            }
+
+            contact(){
+                return `No.1 , Myittar st, Mandalay"`;
+            }
+        }
+
+        const obj2 = new Employee("su su");
+        console.log(obj2);
+        console.log(obj2.name);
+        console.log(obj2.codes());
+        console.log(obj2.salary(500,"usd"));
+        console.log(obj2.contact()); // No.1 , Myittar st , Mandalay
+
+        class Person{
+            constructor(firstname,lastname,city){
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.address = city;
+            }
+
+            // Instance Method
+            getfullname = (title)=>{
+                return `${title}.${this.firstname} ${this.lastname}`
+            }
+
+        }
+
+        const obj3 = new Person("Aung","Kyaw Kyaw","Yangon");
+        console.log(obj3);
+        console.log(obj3.firstname,obj3.lastname);
+        console.log(obj3.address);
+
+        const obj4 = new Person("Nu Nu","Aye",["Bago","Mandalay"]);
+        console.log(obj4);
+        console.log(obj4.firstname,obj3.lastname);
+        console.log(obj4.address[0]);  // Bago
+        console.log(obj4.address[1]);   // Mandalay
+        console.log(obj4["address"][1]); // Mandalay
+        console.log(obj4.getfullname("Ms"));  // Ms.Nu Nu Aye
+
+    </script>
+</body>
+</html>
+
+<!--9CS-->

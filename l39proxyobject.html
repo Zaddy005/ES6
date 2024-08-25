@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Proxy Object - new es6 syntax </title>
+</head>
+<body>
+
+
+    <script type="text/javascript" >
+
+        // => proxy(target object,handler object )
+
+        let vehicle = {
+            brand:"toyota",
+            model:"land cruiser",
+            engine:"petrol"
+        };
+
+        let getcar = new Proxy(vehicle,{
+
+            // trap method
+            // get(target obj,properties name,proxy obj)
+
+            get(target,prop,receiver){
+                if(prop === "brand"){
+                    return target[prop].toUpperCase();
+                }else if(prop === "model"){
+                    return target[prop].toUpperCase();
+                }else if(prop === "receiver"){
+                    return receiver;
+                }else{
+                    return "access deny";
+                }
+            }
+
+        });
+
+        let obj1 = Object.create(getcar);
+        console.log(obj1); // {}
+
+        console.log(obj1.brand); // TOYOTA
+        console.log(obj1.model); // LAND CRUISER
+        console.log(obj1.receiver); // {}
+        console.log(obj1.engine); // access deny
+
+        // => private properties using the GET trap
+
+        let mobile = {
+            brand:"samsung",
+            model:"galaxy y",
+            network:"4g",
+            _id:"10011"
+        };
+
+        let getphone = new Proxy(mobile,{
+            // trap method
+
+            get(target,prop,receiver){
+                if(prop[0] === "_"){
+                    return "access denied";
+                }else{
+                    return target[prop].toUpperCase();
+
+                }
+
+            }
+
+        });
+
+        let obj2 = Object.create(getphone);
+        console.log(obj2); // {}
+
+        console.log(obj2.brand); // SAMSUNG
+        console.log(obj2.model); // GALAXY Y
+        console.log(obj2.network); // 4G
+        console.log(obj2._id); // access deny
+
+
+        // => private properties using the SET trap
+
+        let gettelephone = new Proxy(mobile,{
+            // trap method
+
+        });
+
+
+
+    </script>
+</body>
+</html>
+
+<!-- 7PO -->

@@ -36,6 +36,32 @@
     let animal = new Function('...vals','return vals');
     console.log(animal('cat','dog','fish'));    // (3) ['cat', 'dog', 'fish']
 
+    function exampleone(num1,num2,num3){
+        console.log(num1,num2,num3);
+    }
+
+    exampleone(10,20,30,40,50); // 10 20 30
+
+    function exampletwo(num1,num2,...num3){
+        console.log(num1,num2,num3);
+    }
+
+    exampletwo(10,20,30);
+    exampletwo(10,20,30,40,50,60); // 10 20 (3) [30, 40, 50]
+
+    // function examplethree(...num1,num2,num3){
+    //     console.log(num1,num2,num3);
+    // }
+    //
+    // examplethree(10,20,30); // Uncaught SyntaxError: Rest parameter must be last formal parameter
+
+    // function examplefour(num1,...num2,num3){
+    //     console.log(num1,num2,num3);
+    // }
+    //
+    // examplethree(10,20,30); // Uncaught SyntaxError: Rest parameter must be last formal parameter
+
+
     function sumresult(...nums){
         let total =0 ;
         for(const num of nums){
@@ -53,19 +79,6 @@
     }
 
     console.log(totalresult(10,20,30,40,50));
-
-    function exampleone(num1,num2,num3){
-        console.log(num1,num2,num3);
-    }
-
-    exampleone(10,20,30,40,50); // 10 20 30
-
-    function exampletwo(num1,num2,...num3){
-        console.log(num1,num2,num3);
-    }
-
-    exampletwo(10,20,30);
-    exampletwo(10,20,30,40,50,60);
 
     function getinfo(first,last,...city){
         console.log("This is firstname",first);

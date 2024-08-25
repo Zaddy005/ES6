@@ -76,7 +76,7 @@ const
 
 
     function printtwo(){
-        for(let q-0; q < 5 ; q ++ ){
+        for(let q = 0; q < 5 ; q ++ ){
             console.log(q);
         }
         console.log("q value is = " q );
@@ -114,6 +114,7 @@ const
    console.log(person['name']); // Bracket Notation For Object Properties
    console.log(person.bio());
    console.log(person.contact());
+   console.log(person['bio']());
 
 
    //console.log(person[bio()]) // error
@@ -121,6 +122,7 @@ const
     person.name = "Maung Maung";
     console.log(person.name); // Maung Maung
     console.log(person['name']): // Maung Maung
+
 
     const othername = "name";
     person[othername] = "Kyaw Kyaw";

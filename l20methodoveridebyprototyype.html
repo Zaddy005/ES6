@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Method overriding by prototype  </title>
+</head>
+<body>
+<script type="text/javascript" >
+
+    function Vechcle(color){
+        this.color = color;
+    }
+
+    Vechcle.prototype.vancar = function(){
+        return "This is vancar";
+    }
+
+    function Bike(brand,colour){
+        Vehicle.call(this,colour); // red
+        this.brand = brand;
+    }
+
+    function Boat(brand,color){
+        Vechcle.call(this,color);
+        this.brand = brand;
+        this.color = color;
+    }
+
+</script>
+</body>
+</html>

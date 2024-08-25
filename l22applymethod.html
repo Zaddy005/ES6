@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Apply Method </title>
+</head>
+<body>
+
+<script type="text/javascript" >
+
+    // apply(null,arrayy)
+    // console.log(Math.max(10,20,30)); // 30
+    // console.log(Math.min([10,20,30])); // Nan
+
+    const numbers = [5,6,2,3,7];
+
+    const getmax = Math.max.apply(null,numbers); // 7
+    console.log(getmax);
+
+    const getminx = Math.min.apply(null,numbers); // 2
+    console.log(getminx);
+
+    const arr1 = ["a","b","c"];
+    const arr2 = [1,2,3];
+    arr1.push.apply(arr1,arr2);
+
+    console.log(arr1);
+
+    const names = ["aung aung","kyaw kyaw","zaw zaw"];
+    const ages = [20,21,22];
+    names.push(...ages);
+
+    console.log(names);
+
+
+
+
+</script>
+</body>
+</html>

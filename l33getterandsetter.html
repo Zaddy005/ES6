@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Getter and Setter  </title>
+</head>
+<body>
+
+<script type="text/javascript" >
+
+
+
+    const _brand = new WeakMap();
+    const _network = new WeakMap();
+    const _color = new WeakMap();
+
+    class Phone{
+        constructor(brand,network) {
+            // =public properties
+            // this.brand = brand;
+
+            // =private properties
+            _brand.set(this,brand);
+            _network.set(this,network);
+
+
+
+            _color.set(this,()=>{
+                return this;
+            });
+
+            // Method 2
+            Object.defineProperty(this,'productbrand',{
+               get:function(){
+                   return brand;
+               }
+            });
+
+            let madeby = "China";
+
+            Object.defineProperty(this,'madeby',{
+                get:function(){
+                    return   `${madeby} made`;
+                },
+                set:function(country){
+                    if(country === "myanmar"){
+                        throw new Error("Invalid Country");
+                    }else{
+                        madeby = country;
+                    }
+                }
+            });
+
+        }
+
+        getbrandname(){
+            return _brand.get(this);
+        }
+
+        getphonenetwork(){
+            return _network.get(this);
+        }
+
+        getcolorcode(){
+            return _color.get(this)();
+        }
+
+        // Method 3
+        // look like method , but it's a property
+        get brandname(){
+            return _brand.get(this);
+        }
+
+        get mobilenetwork(){
+            return _network.get(this);
+        }
+
+        set mobilenetwork(val){
+            if(val === '6G' ) throw new Error("Invalid Network Connection");
+            return _network.set(this,val);
+        }
+
+    }
+
+    const obj1 = new Phone("iphone",'5G');
+    console.log(obj1);
+    // console.log(obj1.brand);  // iphone
+
+    console.log((obj1.getbrandname()));
+    console.log((obj1.getphonenetwork()));
+    console.log((obj1.getcolorcode()));
+    console.log(obj1.productbrand);
+
+    obj1.madeby = "Korea";
+    console.log(obj1.madeby);
+
+    obj1.mobilenetwork = "3G";
+    console.log(obj1.mobilenetwork);
+
+    // Method 4
+    console.log(_brand.get(obj1)); // iphone
+    console.log(_network.get(obj1)); // 4G
+    console.log(_color.get(obj1)); // Phone{}
+
+
+
+
+
+</script>
+</body>
+</html>
